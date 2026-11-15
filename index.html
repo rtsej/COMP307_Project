@@ -6,6 +6,7 @@
     <style>
         body {
             margin: 0;
+            background-color: #f9fbf9;
         }
 
         nav {
@@ -25,6 +26,64 @@
             display: flex;
             gap: 75px;
             font-family: sans-serif;
+            align-items: center;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .add {
+            background-color: black;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+        }
+
+
+        .main {
+            display: flex;
+            min-height: calc(100vh - 75px); <!-- to center image on the vertical -->
+        }
+
+        .text {
+            flex: 50%;
+            padding: 100px;
+            font-family: sans-serif;
+        }
+
+        .L {
+            font-size: 64px;
+        }
+
+        .M {
+            font-size: 36px;
+        }
+
+        .S {
+            font-size: 24px;
+        }
+
+        .image {
+            flex: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 50px;
+        }
+
+        img {
+            width: 80%;
+            border-radius: 10px;
+        }
+
+        .explore {
+            background-color: black;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 24px;
         }
     </style>
 </head>
@@ -33,11 +92,27 @@
     <nav>
         <h1>McGillAccess</h1>
         <div class="nav">
-            <a><b>Explore locations</b></a>
-            <a>My contributions</a>
-            <a><b>+ Add accessibility report</b></a>
+            <a href="https://www.mcgill.ca/"><b>Explore locations</b></a>
+            <a href="https://www.mcgill.ca/">My contributions</a>
+            <a href="https://www.mcgill.ca/" class="add"><b>+ Add accessibility report</b></a>
         </div>
     </nav>
+
+    <div class="main">
+        <div class="text">
+            <p class="L"><b>Easier with McGill Access.</b></p>
+            <br><br>
+            <p class="M">Find accessible spaces across campus with information shared by students.</p>
+            <br><br><br><br><br>
+            <p class="S">Explore buildings, check accessibility features, and share your own observations to help others plan their visits.</p>
+            <br><br><br><br><br><br><br><br>
+            <a href="https://www.mcgill.ca/" class="explore"><b>Explore locations →</b></a>
+        </div>
+
+        <div class="image">
+            <img src="mcgill.jpg">
+        </div>
+    </div>
 </body>
 
 </html>
