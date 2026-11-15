@@ -125,14 +125,14 @@
         <form action="" method="POST"> <!-- missing action -->
 
             <label><b>Email</b></label><br>
-            <input type="email">
+            <input type="email" required>
             <br><br><br>
             <label><b>Password</b></label><br>
-            <input type="password">
+            <input type="password" required>
 
             <div class="buttons">
             <button class="log" type="submit"><b>Login</b></button>
-            <button class="reg" onclick="register()"><b>Register</b></button>
+            <button class="reg" type="button" onclick="register()"><b>Register</b></button>
             </div>
 
         </form>
