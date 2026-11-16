@@ -40,6 +40,123 @@
             padding: 8px 12px;
             border-radius: 6px;
         }
+
+
+        .back {
+            position: absolute;
+            top: 140px;
+            left: 80px;
+            font-family: sans-serif;
+            font-size: 14px;
+        }
+        
+        .title {
+            font-family: sans-serif;
+            padding-top: 80px;
+            padding-left: 80px;
+        }
+
+        .subtitle {
+            font-family: sans-serif;
+            padding-left: 80px;
+        }
+        
+        .box {
+            background-color: white;
+            max-width: 1050px;
+            margin: 35px auto;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px lightgray;
+            font-family: sans-serif;
+        }
+
+        .form {
+            margin-bottom: 25px;
+        }
+
+        .form label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .form input,
+        .form textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid lightgray;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        .list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .list label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: normal;
+            cursor: pointer;
+            font-size: 16px;
+            padding: 10px;
+            border-radius: 6px;
+            background-color: #f9fbf9;
+            margin: 10px;
+        }
+
+        .list label:has(input:checked) { /* alternative to making the checkboxes themselves green when clicked */
+            background-color: #dbfcdb;
+        }
+
+        .list input {
+            width: auto;
+        }
+
+        .clear {
+            padding: 12px 25px;
+            background-color: white;
+            color: black;
+            border: 1px solid lightgray;
+            border-radius: 6px;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        .submit {
+            display: block;
+            padding: 12px 25px;
+            background-color: black;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        .select {
+            font-size: 13px;
+            color: gray;
+            margin: -5px 0 15px;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .note {
+            font-size: 13px;
+            color: gray;
+            margin-right: auto;
+        }
     </style>
 </head>
 
@@ -53,8 +170,49 @@
         </div>
     </nav>
 
+    <a href="search.html" class="back">← Back to Buildings</a> <!-- redirect to search page -->
+
     <h1 class="title">Share an accessibility observations</h1>
     <p class="subtitle">Help other students plan their visit. Report only what you observed.</p>
+
+    <div class="box">
+        <form action="" method="POST"> <!-- missing action -->
+
+            <div class="form">
+                <label>Location*</label>
+                <input type="text" name="location" placeholder="Enter building name" required>
+            </div>
+
+            <div class="form">
+                <label>Date observed*</label>
+                <input type="date" name="date" required>
+            </div>
+
+            <div class="form">
+                <label style="font-size: 20px;">Accessibility features</label>
+                <p class="select">Select the features you observed. Unchecked features are not confirmed.</p>
+
+                <div class="list">
+                    <label><input type="checkbox" name="features[]" value="Step-free entrance"> Step-free entrance</label>
+                    <label><input type="checkbox" name="features[]" value="Elevator"> Elevator</label>
+                    <label><input type="checkbox" name="features[]" value="Accessible bathroom"> Accessible washrooms</label>
+                    <label><input type="checkbox" name="features[]" value="Automatic doors"> Automatic doors</label>
+                </div>
+            </div>
+
+            <div class="form">
+                <label>Comments</label>
+                <textarea name="comment" rows="10"></textarea> <!-- placeholder? -->
+            </div>
+
+            <div class="footer">
+                <span class="note">Your report will be visible to other students.</span>
+                <button type="reset" class="clear">Clear</button> <!-- replaced cancel with clear button instead -->
+                <button type="submit" class="submit"><b>Submit report</b></button>
+            </div>
+
+        </form>
+    </div>
 </body>
 
 </html>
