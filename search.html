@@ -180,6 +180,46 @@
             position: relative;
             top: 25px;
         }
+
+        .resultTitle {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .resultTitle h3 {
+            margin: 0;
+        }
+
+        .address {
+            margin: 8px 0;
+            color: gray;
+            font-size: 14px;
+        }
+
+        .accessibilityInfo {
+            background-color: #dbfcdb;
+            padding: 10px;
+            border-radius: 6px;
+            font-size: 13px;
+        }
+
+        .cardFooter {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .updated {
+            color: gray;
+            font-size: 12px;
+        }
+
+        .details {
+            font-size: 14px;
+            font-weight: bold;
+        }
     </style>
 </head>
 
@@ -214,31 +254,59 @@
 
         <div class="sidePanel"> <!-- HARDCODED -->
 
-            <h3 class="resultsReturned">4 results returned</h3>
+            <h3 class="resultsReturned">4 matching locations</h3>
 
-            <div class="list">
+            <div class="list"> <!-- example locations -->
                 <div class="resultCard">
-                    <span class="number">1</span>
-                    <h3>McLennan Library</h3>
-                    <p>...</p>
+                    <div class="resultTitle">
+                        <span class="number">1</span>
+                        <h3>McLennan Library</h3>
+                    </div>
+                    <p class="address">3459 McTavish Street</p>
+                    <div class="accessibilityInfo">Step-free entrance • Elevator • Accessible washrooms</div>
+                    <div class="cardFooter">
+                        <span class="updated">Updated 2 days ago</span>
+                        <a href="location.html" class="details">Details →</a> <!-- href incomplete -->
+                    </div>
                 </div>
 
                 <div class="resultCard">
-                    <span class="number">2</span>
-                    <h3>Redpath Library</h3>
-                    <p>...</p>
+                    <div class="resultTitle">
+                        <span class="number">2</span>
+                        <h3>Redpath Library</h3>
+                    </div>
+                    <p class="address">3459 McTavish Street</p>
+                    <div class="accessibilityInfo">Step-free entrance • Bathroom</div>
+                    <div class="cardFooter">
+                        <span class="updated">Updated 3 weeks ago</span>
+                        <a href="location.html" class="details">Details →</a> <!-- href incomplete -->
+                    </div>
                 </div>
 
                 <div class="resultCard">
-                    <span class="number">3</span>
-                    <h3>University Centre</h3>
-                    <p>...</p>
+                    <div class="resultTitle">
+                        <span class="number">3</span>
+                        <h3>University Centre</h3>
+                    </div>
+                    <p class="address">3459 McTavish Street</p>
+                    <div class="accessibilityInfo">Step-free entrance • Automatic doors</div>
+                    <div class="cardFooter">
+                        <span class="updated">Updated 3 days ago</span>
+                        <a href="location.html" class="details">Details →</a> <!-- href incomplete -->
+                    </div>
                 </div>
 
                 <div class="resultCard">
-                    <span class="number">4</span>
-                    <h3>Building name</h3>
-                    <p>...</p>
+                    <div class="resultTitle">
+                        <span class="number">4</span>
+                        <h3>Building name</h3>
+                    </div>
+                    <p class="address">...</p>
+                    <div class="accessibilityInfo">...</div>
+                    <div class="cardFooter">
+                        <span class="updated">Updated ... ago</span>
+                        <a href="location.html" class="details">Details →</a> <!-- href incomplete -->
+                    </div>
                 </div>
             </div>
 
