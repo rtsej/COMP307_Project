@@ -60,6 +60,83 @@
             font-family: sans-serif;
             padding-left: 80px;
         }
+
+        .content {
+            display: flex;
+            margin: 40px 80px;
+            gap: 40px;
+            font-family: sans-serif;
+        }
+
+        .buildingImage {
+            width: 50%;
+        }
+
+        .buildingImage img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .accessibility {
+            width: 50%;
+        }
+
+        .accessibility h2 {
+            margin-top: 0;
+        }
+
+        .features {
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px lightgray;
+        }
+
+        .feature {
+            display: flex;
+            justify-content: space-between;
+            padding: 18px 5px;
+            border-bottom: 1px solid #eeeeee;
+        }
+
+        .feature:last-child {
+            border-bottom: none;
+        }
+
+        .status {
+            font-weight: bold;
+        }
+
+        .reports {
+            margin: 50px 80px;
+            font-family: sans-serif;
+        }
+
+        .reports h2 {
+            margin-bottom: 20px;
+        }
+
+        .reportList {
+            display: flex;
+            gap: 25px;
+        }
+
+        .reportCard {
+            flex: 1;
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px lightgray;
+        }
+
+        .reportFeature {
+            display: block;
+            background-color: #dbfcdb;
+            padding: 8px 12px;
+            border-radius: 6px;
+        }
     </style>
 </head>
 
@@ -76,7 +153,58 @@
     <a href="location.html" class="back">← Back to location</a> <!-- redirect to location page -->
 
     <h1 class="title">McLennan Library</h1>
-    <p class="subtitle">3459 McTavish Street, Montreal, QC</p>
+    <p class="subtitle">3459 McTavish Street, Montreal, QC</p> <!-- missing location symbol, check Canva -->
+
+    <div class="content"> <!-- HARDCODED -->
+
+        <div class="buildingImage">
+            <img src="mclennan.jpg" alt="McLennan Library">
+        </div>
+
+        <div class="accessibility">
+
+            <h2>Accessibility features</h2>
+
+            <div class="features">
+                <div class="feature">
+                    <span>Step-free entrance</span>
+                    <span class="status">Yes</span>
+                </div>
+
+                <div class="feature">
+                    <span>Elevator</span>
+                    <span class="status">Yes</span>
+                </div>
+
+                <div class="feature">
+                    <span>Accessible washrooms</span>
+                    <span class="status">No</span>
+                </div>
+
+                <div class="feature">
+                    <span>Automatic doors</span>
+                    <span class="status">Unknown</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="reports"> <!-- HARDCODED -->
+
+        <h2>Student reports</h2>
+
+        <div class="reportList">
+            <div class="reportCard">
+                <b class="reportFeature">Step-free entrance</b>
+                <p>The entrance I used was indeed step free.</p>
+            </div>
+
+            <div class="reportCard">
+                <b class="reportFeature">Elevator</b>
+                <p>The elevator was working during my visit.</p>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
