@@ -115,7 +115,7 @@
         .content {
             display: flex;
             margin: 100px 80px 30px;
-            gap: 20px;
+            gap: 35px;
         }
 
         #map {
@@ -128,6 +128,57 @@
 
         .sidePanel {
             flex: 4;
+            height: 650px;
+            display: flex;
+            flex-direction: column;
+            font-family: sans-serif;
+            min-width: 0;
+        }
+
+        .resultsReturned {
+            margin: 0 0 15px;
+        }
+
+        .list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            overflow-y: auto;
+            min-height: 0;
+            padding: 10px 6px;
+        }
+
+        .resultCard {
+            flex: 0 0 170px;
+            background-color: white;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 2px 6px lightgray;
+            box-sizing: border-box;
+        }
+
+        .number {
+            display: inline-block;
+            background-color: #dbfcdb;
+            padding: 6px 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .resultCard h3 { /* place building name to the right of number */
+            display: inline-block;
+            margin: 0 0 0 10px;
+        }
+
+        .addLocation {
+            font-size: 12px;
+            text-align: left;
+            margin-top: 10px;
+            text-decoration: none;
+            display: block;
+            position: relative;
+            top: 25px;
         }
     </style>
 </head>
@@ -161,8 +212,38 @@
     <div class="content">
         <div id="map"></div>
 
-        <div class="sidePanel">
-            <!-- TODO -->
+        <div class="sidePanel"> <!-- HARDCODED -->
+
+            <h3 class="resultsReturned">4 results returned</h3>
+
+            <div class="list">
+                <div class="resultCard">
+                    <span class="number">1</span>
+                    <h3>McLennan Library</h3>
+                    <p>...</p>
+                </div>
+
+                <div class="resultCard">
+                    <span class="number">2</span>
+                    <h3>Redpath Library</h3>
+                    <p>...</p>
+                </div>
+
+                <div class="resultCard">
+                    <span class="number">3</span>
+                    <h3>University Centre</h3>
+                    <p>...</p>
+                </div>
+
+                <div class="resultCard">
+                    <span class="number">4</span>
+                    <h3>Building name</h3>
+                    <p>...</p>
+                </div>
+            </div>
+
+            <a href="submit.html" class="addLocation"><b>Can't find a location? Add a location</b></a>
+
         </div>
     </div>
 </body>
