@@ -2,7 +2,12 @@
 <html>
 
 <head>
-    <title>Register</title>
+    <title>Search</title>
+
+    <!-- Imports -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
     <style>
         body {
             margin: 0;
@@ -55,7 +60,7 @@
 
         .searchBar {
             display: flex;
-            margin: 30px 80px;
+            margin: 30px 80px 10px;
             gap: 20px;
         }
 
@@ -79,10 +84,51 @@
 
         .filters {
             font-family: sans-serif;
-            padding-left: 80px;
-            font-size: 15px;
+            margin: 5px 80px 50px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .filters p {
+            margin-right: 10px;
+            white-space: nowrap;
+        }
+
+        .filters label {
+            background-color: white;
+            padding: 10px 12px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px lightgray;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            flex: 1;
+            white-space: nowrap;
         }
         
+        .filters label:has(input:checked) {
+            background-color: #dbfcdb;
+        }
+
+        .content {
+            display: flex;
+            margin: 100px 80px 30px;
+            gap: 20px;
+        }
+
+        #map {
+            flex: 6;
+            min-width: 0;
+            height: 700px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px lightgray;
+        }
+
+        .sidePanel {
+            flex: 4;
+        }
     </style>
 </head>
 
@@ -99,17 +145,41 @@
     <h1 class="title">Find a place that works for you.</h1>
     <p class="subtitle">Explore campus accessibility through student observations.</p>
 
-    <div class="searchBar"> <!-- TODO -->
+    <div class="searchBar"> <!-- Search needs to be implemented -->
     <input type="text" placeholder="Search a building or address...">
     <button class="search"><b>Search</b></button>
     </div>
 
-    <div class="filters">
-    <p><b>Accessibility filters</b></p>
+    <div class="filters"> <!-- TODO -->
+        <p><b>Accessibility filters</b></p>
+        <label><input type="checkbox"> Step-free entrance</label>
+        <label><input type="checkbox"> Elevator</label>
+        <label><input type="checkbox"> Accessible washrooms</label>
+        <label><input type="checkbox"> Automatic doors</label>
+    </div>
+
+    <div class="content">
+        <div id="map"></div>
+
+        <div class="sidePanel">
+            <!-- TODO -->
+        </div>
     </div>
 </body>
 
 <script>
+var map = L.map('map', {
+    zoomControl: false
+}).setView([45.5048, -73.5772], 16);
+
+L.control.zoom({
+    position: 'topright'
+}).addTo(map);
+
+// CARTO tiles with API key I requested
+L.tileLayer('https://basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png?key=cb1_59s6_1_2de559ac674eb68917a16f65', {
+    attribution: '&copy; OpenStreetMap contributors &copy; CARTO'
+}).addTo(map);
 </script>
 
 </html>
