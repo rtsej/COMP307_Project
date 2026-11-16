@@ -51,6 +51,78 @@
             font-family: sans-serif;
             padding-left: 80px;
         }
+
+        .contributions {
+            margin: 50px 80px;
+            font-family: sans-serif;
+        }
+
+        .contributions h2 {
+            margin-bottom: 20px;
+            margin-left: 5px;
+        }
+
+        .list {
+            height: 65vh;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 10px 5px;
+        }
+
+        .reportCard {
+            flex: 0 0 160px;
+            background-color: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 2px 8px lightgray;
+        }
+
+        .date {
+            color: gray;
+            font-size: 14px;
+        }
+
+        .reportHeader { /*miow*/
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .reportHeader h3 {
+            margin: 0;
+        }
+
+        .reportButtons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .reportButtons button {
+            padding: 7px 14px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            color: black;
+            background-color: white;
+            border: 1px solid lightgray;
+        }
+
+        .features {
+            display: block;
+            background-color: #dbfcdb;
+            padding: 12px;
+            border-radius: 6px;
+            margin-top: 12px;
+            font-size: 14px;
+        }
+
+        .comment {
+            margin-top: 20px;
+            color: #555555;
+            font-size: 14px;
+        }
     </style>
 </head>
 
@@ -66,6 +138,44 @@
 
     <h1 class="title">My contributions</h1>
     <p class="subtitle">View and manage your submitted accessibility reports.</p>
+
+    <div class="contributions">
+
+        <h2>4 submitted reports</h2>
+
+        <div class="list">  <!-- HARDCODED -->
+            <div class="reportCard">
+                <div class="reportHeader">
+                    <h3>McLennan Library</h3>
+                    <div class="reportButtons">
+                        <button onclick="edit()"><b>Edit</b></button>
+                        <button><b>Delete</b></button> <!-- TODO -->
+                    </div>
+                </div>
+                <div class="features">Step-free entrance</div>
+                <p class="comment">The entrance I used was indeed step free.</p>
+            </div>
+
+            <div class="reportCard">
+                <div class="reportHeader">
+                    <h3>McLennan Library</h3>
+                    <div class="reportButtons">
+                        <button onclick="edit()"><b>Edit</b></button>
+                        <button><b>Delete</b></button> <!-- TODO -->
+                    </div>
+                </div>
+                <div class="features">Elevator</div>
+                <p class="comment">The elevator was working during my visit.</p>
+            </div>
+
+        </div>
+    </div>
 </body>
+
+<script>
+    function edit() {
+        window.location.href = "sumbit.html";
+    }
+</script>
 
 </html>
