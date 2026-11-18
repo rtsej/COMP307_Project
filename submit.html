@@ -157,6 +157,71 @@
             color: gray;
             margin-right: auto;
         }
+
+        @media screen and (max-width: 750px) {
+
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+                padding: 20px;
+            }
+
+            .nav {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+                width: 100%;
+            }
+
+            .back {
+                position: static;
+                display: block;
+                margin: 20px 20px 0;
+            }
+
+            .title {
+                padding: 30px 20px 0;
+                font-size: 25px;
+            }
+
+            .subtitle {
+                padding: 10px 20px 0;
+                font-size: 14px;
+            }
+
+            .box {
+                margin: 25px 12px;
+                padding: 20px;
+                box-sizing: border-box;
+            }
+
+            .list {
+                gap: 8px;
+            }
+
+            .list label {
+                margin: 0;
+                font-size: 14px;
+            }
+
+            .footer {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .note {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+
+            .clear,
+            .submit {
+                flex: 1;
+                padding: 12px 10px;
+                font-size: 14px;
+            }
+        }
     </style>
 </head>
 
