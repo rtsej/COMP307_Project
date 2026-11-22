@@ -2,15 +2,16 @@
 import express from 'express';
 import { locationRoutes } from './locations.js';
 
-// Pass Rose's session check here when it is ready. Until then, deny access.
-function signedOut(req, res) {
-  res.status(401).json({ error: { code: 'UNAUTHORIZED', message: 'Please sign in.' } });
-}
+import { authRoutes } from './auth.js';
+import { sessionAuth } from './requireAuth.js';
 
-export function createApp(db, requireAuth = signedOut) {
+export function createApp(db) {
   const app = express();
+  const auth = sessionAuth(db);
+
   app.use(express.json({ limit: '32kb' }));
-  app.use('/api/locations', requireAuth, locationRoutes(db));
+  app.use('/api/auth', authRoutes(db, auth));
+  app.use('/api/locations', auth.requireAuth, locationRoutes(db));
   app.use('/api', (req, res) => {
     res.status(404).json({ error: { code: 'NOT_FOUND', message: 'API route not found.' } });
   });
