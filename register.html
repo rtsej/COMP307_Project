@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Register</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #f9fbf9;
+        }
+
+        nav {
+            background-color: #dbfcdb;
+            padding: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 75px;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        .nav {
+            display: flex;
+            gap: 75px;
+            font-family: sans-serif;
+            align-items: center;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .add {
+            background-color: black;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+        }
+
+
+        .welcome {
+            font-size: 56px;
+            text-align: center;
+            margin-top: 200px;
+            font-family: sans-serif;
+        }
+
+        .please {
+            font-size: 24px;
+            text-align: center;
+            font-family: sans-serif;
+            color: #555e57;
+        }
+
+        .box {
+            background-color: white;
+            width: 400px;
+            height: 300px;
+            border-radius: 30px;
+            box-shadow: 0 2px 10px lightgray;
+            margin: 50px auto;
+            padding: 30px;
+        }
+
+        label {
+            font-family: sans-serif;
+            padding-left: 30px;
+        }
+
+        input {
+            display: block;
+            width: 80%;
+            padding: 10px;
+            margin: auto;
+            margin-top: 10px;
+            border: 1px solid lightgray;
+            border-radius: 5px;
+        }
+
+        .buttons {
+            display: flex;
+            width: 85%;
+            margin: 50px auto;
+            gap: 30px;
+        }
+
+        button {
+            flex: 1;
+            padding: 12px 35px;
+            border-radius: 6px;
+            cursor: pointer;
+            border: 1px solid lightgray;
+        }
+
+        .log {
+            background-color: black;
+            color: white;
+        }
+
+        .reg {
+            background-color: #dbfcdb;
+        }
+
+        @media screen and (max-width: 750px) {
+
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+                padding: 20px;
+            }
+
+            .nav {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <h1>McGillAccess</h1>
+        <div class="nav">
+            <a href="location.html"><b>Explore locations</b></a>
+            <a href="contributions.html">My contributions</a>
+            <a href="submit.html" class="add"><b>+ Add accessibility report</b></a>
+        </div>
+    </nav>
+
+    <h1 class="welcome">Welcome!</h1>
+
+    <p class="please">Create an account to get started.</p>
+
+    <div class="box">
+        <form action="" method="POST"> <!-- missing action -->
+
+            <label><b>Email</b></label><br>
+            <input type="email" required>
+            <br><br><br>
+            <label><b>Password</b></label><br>
+            <input type="password" required>
+
+            <div class="buttons">
+            <button class="log" type="submit"><b>Register</b></button> <!-- keeping log class for styling purposes -->
+            <button class="reg" type="button" onclick="login()"><b>Login</b></button> <!-- keeping reg class for styling purposes -->
+            </div>
+
+        </form>
+    </div>
+</body>
+
+<script>
+    function login() {
+        window.location.href = "login.html";
+    }
+</script>
+
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My Contributions</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #f9fbf9;
+        }
+
+        nav {
+            background-color: #dbfcdb;
+            padding: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 75px;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        .nav {
+            display: flex;
+            gap: 75px;
+            font-family: sans-serif;
+            align-items: center;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .add {
+            background-color: black;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+        }
+
+
+        .title {
+            font-family: sans-serif;
+            padding-top: 80px;
+            padding-left: 80px;
+        }
+
+        .subtitle {
+            font-family: sans-serif;
+            padding-left: 80px;
+        }
+
+        .contributions {
+            margin: 50px 80px;
+            font-family: sans-serif;
+        }
+
+        .contributions h2 {
+            margin-bottom: 20px;
+            margin-left: 5px;
+        }
+
+        .list {
+            height: 65vh;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 10px 5px;
+        }
+
+        .reportCard {
+            flex: 0 0 160px;
+            background-color: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 2px 8px lightgray;
+        }
+
+        .date {
+            color: gray;
+            font-size: 14px;
+        }
+
+        .reportHeader { /*miow*/
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .reportHeader h3 {
+            margin: 0;
+        }
+
+        .reportButtons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .reportButtons button {
+            padding: 7px 14px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            color: black;
+            background-color: white;
+            border: 1px solid lightgray;
+        }
+
+        .features {
+            display: block;
+            background-color: #dbfcdb;
+            padding: 12px;
+            border-radius: 6px;
+            margin-top: 12px;
+            font-size: 14px;
+        }
+
+        .comment {
+            margin-top: 20px;
+            color: #555555;
+            font-size: 14px;
+        }
+
+        @media screen and (max-width: 750px) {
+
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+                padding: 20px;
+            }
+
+            .nav {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <h1>McGillAccess</h1>
+        <div class="nav">
+            <a href="location.html"><b>Explore locations</b></a>
+            <a href="contributions.html">My contributions</a>
+            <a href="submit.html" class="add"><b>+ Add accessibility report</b></a>
+        </div>
+    </nav>
+
+    <h1 class="title">My contributions</h1>
+    <p class="subtitle">View and manage your submitted accessibility reports.</p>
+
+    <div class="contributions"> <!-- HARDCODED -->
+
+        <h2>4 submitted reports</h2>
+
+        <div class="list">
+            <div class="reportCard">
+                <div class="reportHeader">
+                    <h3>McLennan Library</h3>
+                    <div class="reportButtons">
+                        <button onclick="edit()"><b>Edit</b></button>
+                        <button><b>Delete</b></button> <!-- TODO -->
+                    </div>
+                </div>
+                <div class="features">Step-free entrance</div>
+                <p class="comment">The entrance I used was indeed step free.</p>
+            </div>
+
+            <div class="reportCard">
+                <div class="reportHeader">
+                    <h3>McLennan Library</h3>
+                    <div class="reportButtons">
+                        <button onclick="edit()"><b>Edit</b></button>
+                        <button><b>Delete</b></button> <!-- TODO -->
+                    </div>
+                </div>
+                <div class="features">Elevator</div>
+                <p class="comment">The elevator was working during my visit.</p>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+<script>
+    function edit() {
+        window.location.href = "sumbit.html";
+    }
+</script>
+
+</html>

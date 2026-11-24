@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Search Page</title>
+
+    <!-- Imports -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <style>
+        body {
+            margin: 0;
+            background-color: #f9fbf9;
+        }
+
+        nav {
+            background-color: #dbfcdb;
+            padding: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 75px;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        .nav {
+            display: flex;
+            gap: 75px;
+            font-family: sans-serif;
+            align-items: center;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .add {
+            background-color: black;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+        }
+
+
+        .title {
+            font-family: sans-serif;
+            padding-top: 80px;
+            padding-left: 80px;
+        }
+
+        .subtitle {
+            font-family: sans-serif;
+            padding-left: 80px;
+        }
+
+        .searchBar {
+            display: flex;
+            margin: 30px 80px 10px;
+            gap: 20px;
+        }
+
+        .searchBar input {
+            width: 100%;
+            padding: 18px;
+            font-size: 16px;
+            border-radius: 6px;
+            border: 1px solid lightgray;
+        }
+
+        .search {
+            cursor: pointer;
+            padding: 18px;
+            font-size: 16px;
+            background-color: black;
+            color: white;
+            border-radius: 6px;
+            border: 1px solid lightgray;
+        }
+
+        .filters {
+            font-family: sans-serif;
+            margin: 5px 80px 50px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .filters p {
+            margin-right: 10px;
+            white-space: nowrap;
+        }
+
+        .filters label {
+            background-color: white;
+            padding: 10px 12px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px lightgray;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            flex: 1;
+            white-space: nowrap;
+        }
+        
+        .filters label:has(input:checked) {
+            background-color: #dbfcdb;
+        }
+
+        .content {
+            display: flex;
+            margin: 100px 80px 30px;
+            gap: 35px;
+        }
+
+        #map {
+            flex: 6;
+            min-width: 0;
+            height: 700px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px lightgray;
+        }
+
+        .sidePanel {
+            flex: 4;
+            height: 650px;
+            display: flex;
+            flex-direction: column;
+            font-family: sans-serif;
+            min-width: 0;
+        }
+
+        .resultsReturned {
+            margin: 0 0 15px;
+        }
+
+        .list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            overflow-y: auto;
+            min-height: 0;
+            padding: 10px 6px;
+        }
+
+        .resultCard {
+            flex: 0 0 170px;
+            background-color: white;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 2px 6px lightgray;
+            box-sizing: border-box;
+        }
+
+        .number {
+            display: inline-block;
+            background-color: #dbfcdb;
+            padding: 6px 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .resultCard h3 { /* place building name to the right of number */
+            display: inline-block;
+            margin: 0 0 0 10px;
+        }
+
+        .addLocation {
+            font-size: 12px;
+            text-align: left;
+            margin-top: 10px;
+            text-decoration: none;
+            display: block;
+            position: relative;
+            top: 25px;
+        }
+
+        .resultTitle {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .resultTitle h3 {
+            margin: 0;
+        }
+
+        .address {
+            margin: 8px 0;
+            color: gray;
+            font-size: 14px;
+        }
+
+        .accessibilityInfo {
+            background-color: #dbfcdb;
+            padding: 10px;
+            border-radius: 6px;
+            font-size: 13px;
+        }
+
+        .cardFooter {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .updated {
+            color: gray;
+            font-size: 12px;
+        }
+
+        .details {
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        @media screen and (max-width: 750px) {
+
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+                padding: 20px;
+            }
+
+            .nav {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+                width: 100%;
+            }
+
+            .title {
+                padding: 30px 20px 0;
+                font-size: 25px;
+            }
+
+            .subtitle {
+                padding: 10px 20px 0;
+                font-size: 14px;
+            }
+
+            .searchBar {
+                margin: 25px 15px 15px;
+                gap: 10px;
+            }
+
+            .searchBar input {
+                padding: 12px;
+                font-size: 14px;
+            }
+
+            .search {
+                padding: 12px;
+                font-size: 14px;
+            }
+
+            .filters {
+                margin: 20px 15px 30px;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .filters p {
+                width: 100%;
+                margin: 0 0 5px;
+            }
+
+            .filters label {
+                flex: 1 1 40%;
+                box-sizing: border-box;
+                white-space: normal;
+                font-size: 13px;
+                padding: 10px;
+            }
+
+            .content {
+                flex-direction: column;
+                margin: 30px 15px;
+                gap: 25px;
+            }
+
+            #map {
+                flex: none;
+                width: 100%;
+                height: 350px;
+            }
+
+            .sidePanel {
+                flex: none;
+                width: 100%;
+                height: auto;
+            }
+
+            .resultsReturned {
+                font-size: 18px;
+            }
+
+            .list {
+                overflow-y: visible;
+                padding: 5px 2px;
+                gap: 15px;
+            }
+
+            .resultCard {
+                flex: none;
+                min-height: 170px;
+                padding: 15px;
+            }
+
+            .resultTitle h3 {
+                font-size: 16px;
+            }
+
+            .accessibilityInfo {
+                font-size: 12px;
+            }
+
+            .cardFooter {
+                gap: 10px;
+                flex-wrap: wrap;
+            }
+
+            .addLocation {
+                position: static;
+                margin-top: 15px;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <h1>McGillAccess</h1>
+        <div class="nav">
+            <a href="location.html"><b>Explore locations</b></a>
+            <a href="contributions.html">My contributions</a>
+            <a href="submit.html" class="add"><b>+ Add accessibility report</b></a>
+        </div>
+    </nav>
+
+    <h1 class="title">Find a place that works for you.</h1>
+    <p class="subtitle">Explore campus accessibility through student observations.</p>
+
+    <div class="searchBar"> <!-- Search needs to be implemented -->
+    <input type="text" placeholder="Search a building or address...">
+    <button class="search"><b>Search</b></button>
+    </div>
+
+    <div class="filters"> <!-- TODO -->
+        <p><b>Accessibility filters</b></p>
+        <label><input type="checkbox"> Step-free entrance</label>
+        <label><input type="checkbox"> Elevator</label>
+        <label><input type="checkbox"> Accessible washrooms</label>
+        <label><input type="checkbox"> Automatic doors</label>
+    </div>
+
+    <div class="content">
+        <div id="map"></div> <!-- simple map with zoom features -->
+
+        <div class="sidePanel">
+
+            <h3 class="resultsReturned">4 matching locations</h3> <!-- example number -->
+
+            <div class="list">  <!-- HARDCODED -->
+                <div class="resultCard">
+                    <div class="resultTitle">
+                        <span class="number">1</span>
+                        <h3>McLennan Library</h3>
+                    </div>
+                    <p class="address">3459 McTavish Street</p>
+                    <div class="accessibilityInfo">Step-free entrance • Elevator • Accessible washrooms</div>
+                    <div class="cardFooter">
+                        <span class="updated">Updated 2 days ago</span>
+                        <a href="location.html" class="details">Details →</a> <!-- href incomplete -->
+                    </div>
+                </div>
+
+                <div class="resultCard">
+                    <div class="resultTitle">
+                        <span class="number">2</span>
+                        <h3>Redpath Library</h3>
+                    </div>
+                    <p class="address">3459 McTavish Street</p>
+                    <div class="accessibilityInfo">Step-free entrance • Bathroom</div>
+                    <div class="cardFooter">
+                        <span class="updated">Updated 3 weeks ago</span>
+                        <a href="location.html" class="details">Details →</a> <!-- href incomplete -->
+                    </div>
+                </div>
+
+                <div class="resultCard">
+                    <div class="resultTitle">
+                        <span class="number">3</span>
+                        <h3>University Centre</h3>
+                    </div>
+                    <p class="address">3459 McTavish Street</p>
+                    <div class="accessibilityInfo">Step-free entrance • Automatic doors</div>
+                    <div class="cardFooter">
+                        <span class="updated">Updated 3 days ago</span>
+                        <a href="location.html" class="details">Details →</a> <!-- href incomplete -->
+                    </div>
+                </div>
+
+                <div class="resultCard">
+                    <div class="resultTitle">
+                        <span class="number">4</span>
+                        <h3>Building name</h3>
+                    </div>
+                    <p class="address">...</p>
+                    <div class="accessibilityInfo">...</div>
+                    <div class="cardFooter">
+                        <span class="updated">Updated ... ago</span>
+                        <a href="location.html" class="details">Details →</a> <!-- href incomplete -->
+                    </div>
+                </div>
+            </div>
+
+            <a href="add.html" class="addLocation"><b>Can't find a location? Add a location</b></a>
+
+        </div>
+    </div>
+</body>
+
+<script>
+var map = L.map('map', {
+    zoomControl: false
+}).setView([45.5048, -73.5772], 16);
+
+L.control.zoom({
+    position: 'topright'
+}).addTo(map);
+
+// CARTO tiles with API key I requested
+L.tileLayer('https://basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png?key=cb1_59s6_1_2de559ac674eb68917a16f65', {
+    attribution: '&copy; OpenStreetMap contributors &copy; CARTO'
+}).addTo(map);
+</script>
+
+</html>
