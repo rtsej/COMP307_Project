@@ -369,61 +369,8 @@
 
         <div class="sidePanel">
 
-            <h3 class="resultsReturned">4 matching locations</h3> <!-- example number -->
-
-            <div class="list">  <!-- HARDCODED -->
-                <div class="resultCard">
-                    <div class="resultTitle">
-                        <span class="number">1</span>
-                        <h3>McLennan Library</h3>
-                    </div>
-                    <p class="address">3459 McTavish Street</p>
-                    <div class="accessibilityInfo">Step-free entrance • Elevator • Accessible washrooms</div>
-                    <div class="cardFooter">
-                        <span class="updated">Updated 2 days ago</span>
-                        <a href="location.html" class="details">Details →</a> <!-- href incomplete -->
-                    </div>
-                </div>
-
-                <div class="resultCard">
-                    <div class="resultTitle">
-                        <span class="number">2</span>
-                        <h3>Redpath Library</h3>
-                    </div>
-                    <p class="address">3459 McTavish Street</p>
-                    <div class="accessibilityInfo">Step-free entrance • Bathroom</div>
-                    <div class="cardFooter">
-                        <span class="updated">Updated 3 weeks ago</span>
-                        <a href="location.html" class="details">Details →</a> <!-- href incomplete -->
-                    </div>
-                </div>
-
-                <div class="resultCard">
-                    <div class="resultTitle">
-                        <span class="number">3</span>
-                        <h3>University Centre</h3>
-                    </div>
-                    <p class="address">3459 McTavish Street</p>
-                    <div class="accessibilityInfo">Step-free entrance • Automatic doors</div>
-                    <div class="cardFooter">
-                        <span class="updated">Updated 3 days ago</span>
-                        <a href="location.html" class="details">Details →</a> <!-- href incomplete -->
-                    </div>
-                </div>
-
-                <div class="resultCard">
-                    <div class="resultTitle">
-                        <span class="number">4</span>
-                        <h3>Building name</h3>
-                    </div>
-                    <p class="address">...</p>
-                    <div class="accessibilityInfo">...</div>
-                    <div class="cardFooter">
-                        <span class="updated">Updated ... ago</span>
-                        <a href="location.html" class="details">Details →</a> <!-- href incomplete -->
-                    </div>
-                </div>
-            </div>
+            <h3 class="resultsReturned">Loading locations...</h3>
+            <div class="list"></div>
 
             <a href="add.html" class="addLocation"><b>Can't find a location? Add a location</b></a>
 
@@ -445,5 +392,7 @@ L.tileLayer('https://basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png?k
     attribution: '&copy; OpenStreetMap contributors &copy; CARTO'
 }).addTo(map);
 </script>
+
+<script src="js/search.js"></script>
 
 </html>
