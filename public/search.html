@@ -221,6 +221,16 @@
             font-weight: bold;
         }
 
+        .logout {
+            background-color: transparent;
+            border: 1px solid black;
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: sans-serif;
+            white-space: nowrap;
+        }
+
         @media screen and (max-width: 750px) {
 
             nav {
@@ -342,9 +352,10 @@
     <nav>
         <h1>McGillAccess</h1>
         <div class="nav">
-            <a href="location.html"><b>Explore locations</b></a>
+            <a href="search.html"><b>Explore locations</b></a>
             <a href="contributions.html">My contributions</a>
             <a href="submit.html" class="add"><b>+ Add accessibility report</b></a>
+            <button id="logout" class="logout">Log out</button>
         </div>
     </nav>
 
@@ -394,5 +405,6 @@ L.tileLayer('https://basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png?k
 </script>
 
 <script src="js/search.js"></script>
+<script src="js/auth.js"></script>
 
 </html>
