@@ -24,7 +24,7 @@
 
         .nav {
             display: flex;
-            gap: 75px;
+            gap: 30px;
             font-family: sans-serif;
             align-items: center;
         }
@@ -125,6 +125,16 @@
             font-size: 14px;
         }
 
+        .logout {
+            background-color: transparent;
+            border: 1px solid black;
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: sans-serif;
+            white-space: nowrap;
+        }
+
         @media screen and (max-width: 750px) {
 
             nav {
@@ -148,9 +158,10 @@
     <nav>
         <h1>McGillAccess</h1>
         <div class="nav">
-            <a href="location.html"><b>Explore locations</b></a>
+            <a href="search.html"><b>Explore locations</b></a>
             <a href="contributions.html">My contributions</a>
             <a href="submit.html" class="add"><b>+ Add accessibility report</b></a>
+            <button id="logout" class="logout">Log out</button>
         </div>
     </nav>
 
@@ -188,11 +199,12 @@
 
         </div>
     </div>
+    <script src="js/auth.js"></script>
 </body>
 
 <script>
     function edit() {
-        window.location.href = "sumbit.html";
+        window.location.href = "submit.html";
     }
 </script>
 
