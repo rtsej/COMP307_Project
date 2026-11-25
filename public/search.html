@@ -351,17 +351,17 @@
     <h1 class="title">Find a place that works for you.</h1>
     <p class="subtitle">Explore campus accessibility through student observations.</p>
 
-    <div class="searchBar"> <!-- Search needs to be implemented -->
-    <input type="text" placeholder="Search a building or address...">
-    <button class="search"><b>Search</b></button>
-    </div>
+    <form class="searchBar" id="searchForm">
+        <input type="text" id="query" placeholder="Search a building or address...">
+        <button class="search" type="submit"><b>Search</b></button>
+    </form>
 
-    <div class="filters"> <!-- TODO -->
+    <div class="filters">
         <p><b>Accessibility filters</b></p>
-        <label><input type="checkbox"> Step-free entrance</label>
-        <label><input type="checkbox"> Elevator</label>
-        <label><input type="checkbox"> Accessible washrooms</label>
-        <label><input type="checkbox"> Automatic doors</label>
+        <label><input type="checkbox" value="stepFreeEntrance"> Step-free entrance</label>
+        <label><input type="checkbox" value="elevator"> Elevator</label>
+        <label><input type="checkbox" value="accessibleBathroom"> Accessible washrooms</label>
+        <label><input type="checkbox" value="automaticDoors"> Automatic doors</label>
     </div>
 
     <div class="content">
