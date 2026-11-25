@@ -24,7 +24,7 @@
 
         .nav {
             display: flex;
-            gap: 75px;
+            gap: 30px;
             font-family: sans-serif;
             align-items: center;
         }
@@ -138,6 +138,20 @@
             border-radius: 6px;
         }
 
+        [hidden] {
+            display: none !important;
+        }
+
+        .logout {
+            background-color: transparent;
+            border: 1px solid black;
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: sans-serif;
+            white-space: nowrap;
+        }
+
         @media screen and (max-width: 750px) {
 
             nav {
@@ -218,21 +232,23 @@
     <nav>
         <h1>McGillAccess</h1>
         <div class="nav">
-            <a href="location.html"><b>Explore locations</b></a>
+            <a href="search.html"><b>Explore locations</b></a>
             <a href="contributions.html">My contributions</a>
             <a href="submit.html" class="add"><b>+ Add accessibility report</b></a>
+            <button id="logout" class="logout">Log out</button>
         </div>
     </nav>
 
-    <a href="location.html" class="back">← Back to location</a> <!-- redirect to location page -->
+    <a href="search.html" class="back">← Back to locations</a>
 
-    <h1 class="title">McLennan Library</h1>
-    <p class="subtitle">3459 McTavish Street, Montreal, QC</p> <!-- missing location symbol, check Canva -->
+    <h1 class="title">Loading location...</h1>
+    <p class="subtitle"></p>
 
-    <div class="content"> <!-- HARDCODED -->
+    <div class="content" hidden>
 
-        <div class="buildingImage"> <!-- picture of McLennan -->
-            <img src="mclennan.jpg" alt="McLennan Library">
+        <div class="buildingImage">
+            <img src="mclennan.jpg" alt="McLennan Library" hidden>
+            <p id="noImage">No building image available</p>
         </div>
 
         <div class="accessibility">
@@ -242,46 +258,39 @@
             <div class="features">
                 <div class="feature">
                     <span>Step-free entrance</span>
-                    <span class="status">Yes</span>
+                    <span class="status" id="stepFreeEntrance">Unknown</span>
                 </div>
 
                 <div class="feature">
                     <span>Elevator</span>
-                    <span class="status">Yes</span>
+                    <span class="status" id="elevator">Unknown</span>
                 </div>
 
                 <div class="feature">
                     <span>Accessible washrooms</span>
-                    <span class="status">Unknown</span>
+                    <span class="status" id="accessibleBathroom">Unknown</span>
                 </div>
 
                 <div class="feature">
                     <span>Automatic doors</span>
-                    <span class="status">Unknown</span>
+                    <span class="status" id="automaticDoors">Unknown</span>
                 </div>
             </div>
+
+            <p id="lastReported"></p>
         </div>
     </div>
 
-    <div class="reports"> <!-- HARDCODED -->
-
+    <div class="reports">
         <h2>Student reports</h2>
 
         <div class="reportList">
-            <div class="reportCard">
-                <b class="reportFeature">Step-free entrance</b>
-                <p>The entrance I used was indeed step free.</p>
-            </div>
-
-            <div class="reportCard">
-                <b class="reportFeature">Elevator</b>
-                <p>The elevator was working during my visit.</p>
-            </div>
+            <p>Student reports not loaded yet.</p>
         </div>
     </div>
-</body>
 
-<script>
-</script>
+    <script src="js/location.js"></script>
+    <script src="js/auth.js"></script>
+</body>
 
 </html>
