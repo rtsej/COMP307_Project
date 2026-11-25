@@ -5,8 +5,14 @@ import { locationRoutes } from './locations.js';
 import { authRoutes } from './auth.js';
 import { sessionAuth } from './requireAuth.js';
 
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
 export function createApp(db) {
   const app = express();
+  const __dirname = path.dirname(fileURLToPath(import.meta.url));
+  app.use(express.static(path.join(__dirname, '../public')));
+
   const auth = sessionAuth(db);
 
   app.use(express.json({ limit: '32kb' }));
