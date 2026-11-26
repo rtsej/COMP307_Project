@@ -2,8 +2,9 @@
 import express from 'express';
 import { locationRoutes } from './locations.js';
 
-import { authRoutes } from './auth.js';
-import { sessionAuth } from './requireAuth.js';
+import { authRoutes } from './rose/auth.js';
+import { sessionAuth } from './rose/requireAuth.js';
+import { reportRoutes } from './rose/routes/reports.js';
 
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -18,6 +19,7 @@ export function createApp(db) {
   app.use(express.json({ limit: '32kb' }));
   app.use('/api/auth', authRoutes(db, auth));
   app.use('/api/locations', auth.requireAuth, locationRoutes(db));
+  app.use('/api', reportRoutes(db, auth.requireAuth));
   app.use('/api', (req, res) => {
     res.status(404).json({ error: { code: 'NOT_FOUND', message: 'API route not found.' } });
   });
