@@ -168,44 +168,14 @@
     <h1 class="title">My contributions</h1>
     <p class="subtitle">View and manage your submitted accessibility reports.</p>
 
-    <div class="contributions"> <!-- HARDCODED -->
+        <div class="contributions">
+        <h2 id="reportCount">Loading reports...</h2>
 
-        <h2>4 submitted reports</h2>
-
-        <div class="list">
-            <div class="reportCard">
-                <div class="reportHeader">
-                    <h3>McLennan Library</h3>
-                    <div class="reportButtons">
-                        <button onclick="edit()"><b>Edit</b></button>
-                        <button><b>Delete</b></button> <!-- TODO -->
-                    </div>
-                </div>
-                <div class="features">Step-free entrance</div>
-                <p class="comment">The entrance I used was indeed step free.</p>
-            </div>
-
-            <div class="reportCard">
-                <div class="reportHeader">
-                    <h3>McLennan Library</h3>
-                    <div class="reportButtons">
-                        <button onclick="edit()"><b>Edit</b></button>
-                        <button><b>Delete</b></button> <!-- TODO -->
-                    </div>
-                </div>
-                <div class="features">Elevator</div>
-                <p class="comment">The elevator was working during my visit.</p>
-            </div>
-
-        </div>
+        <div class="list"></div>
     </div>
+
+    <script src="js/contributions.js"></script>
     <script src="js/auth.js"></script>
 </body>
-
-<script>
-    function edit() {
-        window.location.href = "submit.html";
-    }
-</script>
 
 </html>
