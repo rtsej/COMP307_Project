@@ -286,15 +286,15 @@
 
             <div class="form">
                 <label for="comments">Comments</label>
-                <textarea id="comments" rows="10"></textarea>
+                <textarea id="comments" rows="10" maxlength="5000"></textarea>
             </div>
 
-            <p class="error" id="error"></p>
+            <p class="error" id="error" role="alert"></p>
 
             <div class="footer">
                 <span class="note">Your report will be visible to other students.</span>
                 <button type="reset" class="clear">Clear</button>
-                <button type="submit" class="submit"><b>Submit report</b></button>
+                <button type="submit" class="submit" disabled><b>Submit report</b></button>
             </div>
 
         </form>
@@ -302,53 +302,6 @@
 
     <script src="js/submit.js"></script>
     <script src="js/auth.js"></script>
-    </body>
-
-    </html>
-    <p class="subtitle">Help other students plan their visit. Report only what you observed.</p>
-
-    <div class="box">
-        <form action="" method="POST"> <!-- missing action -->
-
-            <div class="form">
-                <label>Location*</label>
-                <input type="text" name="location" placeholder="Enter building name" required>
-            </div>
-
-            <div class="form">
-                <label>Date observed*</label>
-                <input type="date" name="date" required>
-            </div>
-
-            <div class="form">
-                <label style="font-size: 20px;">Accessibility features</label>
-                <p class="select">Select the features you observed. Unchecked features are not confirmed.</p>
-
-                <div class="list">
-                    <label><input type="checkbox" name="features[]" value="Step-free entrance"> Step-free entrance</label>
-                    <label><input type="checkbox" name="features[]" value="Elevator"> Elevator</label>
-                    <label><input type="checkbox" name="features[]" value="Accessible bathroom"> Accessible washrooms</label>
-                    <label><input type="checkbox" name="features[]" value="Automatic doors"> Automatic doors</label>
-                </div>
-            </div>
-
-            <div class="form">
-                <label>Comments</label>
-                <textarea name="comment" rows="10"></textarea> <!-- placeholder? -->
-            </div>
-
-            <div class="footer">
-                <span class="note">Your report will be visible to other students.</span>
-                <button type="reset" class="clear">Clear</button> <!-- replaced cancel with clear button instead -->
-                <button type="submit" class="submit"><b>Submit report</b></button>
-            </div>
-
-        </form>
-    </div>
-    <script src="js/auth.js"></script>
 </body>
-
-<script>
-</script>
 
 </html>

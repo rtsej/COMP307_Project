@@ -1,6 +1,15 @@
 # McGillAccess backend
 
-From this directory, run `npm ci` and `npm start` with Node.js 22 or newer.
+From this directory, run `npm ci` with Node.js 22 or newer and configure MongoDB.
+Run `npm run seed` to add the three starter buildings, then `npm start`.
+Express serves the frontend from `../public` and the API from `/api`.
+
+The seed command can be run again without duplicating its existing locations.
+It adds building pins without creating student reports. Pin coordinates are
+approximate. Building sources: [McLennan](https://www.mcgill.ca/undergraduate-admissions/mclennan-library-building),
+[Redpath](https://digital.library.mcgill.ca/campus/items/cb006.html),
+and [University Centre](https://digital.library.mcgill.ca/campus/items/cb013.html).
+See [MongoDB schema](SCHEMA.md) for collections, indexes, and field types.
 The server binds to localhost. Set `MONGODB_URI`, `MONGODB_DB`, or `PORT`
 in a local `.env` file as needed. Defaults are local MongoDB, the
 `mcgillaccess` database, and port `3000`.
@@ -16,9 +25,7 @@ and `lastReportedOn` (YYYY-MM-DD or null). The accessibility keys are
 `stepFreeEntrance`, `elevator`, `accessibleBathroom`, and `automaticDoors`.
 Each is `available` when a saved report checks that feature, or `unknown` otherwise.
 
-For Rose's integration, reports store `locationId` as a MongoDB ObjectId, `features`
-as an array of the keys above, and `observedOn` as a YYYY-MM-DD string.
-Mount future report routes with `auth.requireAuth` before the API fallback.
+The app uses the session middleware and report routes under `backend/rose/`.
 The middleware sets `req.userId` to the authenticated user's MongoDB ObjectId.
 Sign in through the same origin as the API so the browser sends the session cookie.
 
@@ -32,8 +39,11 @@ Sign in through the same origin as the API so the browser sends the session cook
 Sessions expire after 24 hours. Set `NODE_ENV=production` when serving over
 HTTPS so the browser only sends the session cookie over HTTPS.
 
-For Jad, the Add Location form needs coordinates as well as the building's
-name and address. The frontend can use the same JSON shape for mock data and
-later switch to the real endpoints.
+My Contributions uses `GET /api/me/reports`, `PATCH /api/reports/:id`
+and `DELETE /api/reports/:id`. The same report form handles creation and editing.
 
-This initial backend scaffold was drafted with Codex assistance.
+On the shared COMP 307 server, use the MongoDB URI, port, and HTTPS routing
+provided by SOCS IT. Keep the matching source checkout accessible to the TA
+and put the verified HTTPS URL in the final submission README.
+
+The initial backend scaffold and v1 integration fixes were drafted with Codex assistance.
